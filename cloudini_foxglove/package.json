@@ -10,7 +10,8 @@
   "keywords": [],
   "scripts": {
     "build": "foxglove-extension build",
-    "foxglove:prepublish": "foxglove-extension build --mode production",
+    "foxglove:prepare-wasm": "node ./scripts/prepare-wasm.cjs",
+    "foxglove:prepublish": "npm run foxglove:prepare-wasm && foxglove-extension build --mode production",
     "lint": "eslint .",
     "lint:ci": "eslint .",
     "lint:fix": "eslint --fix .",
