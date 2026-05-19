@@ -11,8 +11,8 @@ export function activate(extensionContext: ExtensionContext): void {
     type: "schema",
     fromSchemaName: "point_cloud_interfaces/msg/CompressedPointCloud2",
     toSchemaName: "sensor_msgs/msg/PointCloud2",
-    converter: (inputMessage: CompressedPointCloud, _messageEvent: Immutable<MessageEvent<CompressedPointCloud>>) => {
-      return convertPointCloudWasm(inputMessage);
+    converter: (inputMessage: CompressedPointCloud, messageEvent: Immutable<MessageEvent<CompressedPointCloud>>) => {
+      return convertPointCloudWasm(inputMessage, messageEvent.topic);
     },
   });
 }
